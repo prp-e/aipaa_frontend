@@ -38,3 +38,6 @@ class AipaaFrontend:
         
         stream.close()
         player.terminate()
+    
+    def say(self, input_text, file_name='tts.wav', keep_file=False):
+        pass
