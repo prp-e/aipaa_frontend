@@ -54,3 +54,4 @@ class AipaaFrontend:
             f.write(tts.content)
         
         self.play_sound(file_name)
+        os.remove(file_name)
