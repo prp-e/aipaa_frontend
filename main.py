@@ -5,7 +5,7 @@ import pyaudio
 import requests
 import soundfile as sf
 import ssl
-import urllib.parse
+import time
 import wave
 import warnings
 warnings.filterwarnings('ignore')
@@ -61,4 +61,5 @@ class AipaaFrontend:
             f.write(tts.content)
         
         self.play_sound(file_name)
+        time.sleep(2.5)
         os.remove(file_name)
