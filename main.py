@@ -41,10 +41,10 @@ class AipaaFrontend:
     
     def say(self, input_text, file_name='tts.wav', keep_file=False):
         input_text = urllib.parse.quote(input_text)
-        headers = {'Authorization': f'Bearer {os.getenv("AIPAA_TOKEN")}'}
+        headers = {'Authorization': f'Bearer {os.getenv("AIPAA_TOKEN")}', 'content-type': 'form-data'}
         payload = f'input_text={input_text}'
         url = 'https://api.aipaa.ir/api/v1/voice/tts/'
 
         response = requests.post(url, headers=headers, data=payload)
 
-        return response.text
+        return response.text, response.status_code
