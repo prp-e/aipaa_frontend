@@ -7,6 +7,8 @@ import soundfile as sf
 import ssl
 import urllib.parse
 import wave
+import warnings
+warnings.filterwarnings('ignore')
 
 try:
     _create_unverified_https_context = ssl._create_unverified_context
@@ -23,7 +25,7 @@ class AipaaFrontend:
     def play_sound(self, wave_file):
         x, _ = librosa.load(wave_file, sr=16000)
         sf.write(wave_file, x, 16000)
-        
+
         wave_file = wave.open(wave_file, 'rb')
         chunk = 1024
         player = pyaudio.PyAudio() 
