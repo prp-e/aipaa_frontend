@@ -40,6 +40,7 @@ class AipaaFrontend:
         player.terminate()
     
     def say(self, input_text, file_name='tts.wav', keep_file=False):
+        input_text = urllib.parse.quote(input_text)
         headers = {'Authorization': f'Bearer {os.getenv("AIPAA_TOKEN")}'}
         payload = f'input_text={input_text}'
         url = 'https://api.aipaa.ir/api/v1/voice/tts'
