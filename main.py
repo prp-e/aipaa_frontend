@@ -1,11 +1,9 @@
-from datetime import datetime
 import librosa
 import os
 import pyaudio 
 import requests
 import soundfile as sf
 import ssl
-import time
 import wave
 import warnings
 warnings.filterwarnings('ignore')
@@ -23,7 +21,7 @@ class AipaaFrontend:
         pass
 
     def play_sound(self, wave_file):
-        x, _ = librosa.load(wave_file, sr=16000)
+        x, _ = librosa.load(wave_file, sr=8000)
         sf.write(wave_file, x, 16000)
 
         wave_file = wave.open(wave_file, 'rb')
@@ -61,5 +59,4 @@ class AipaaFrontend:
             f.write(tts.content)
         
         self.play_sound(file_name)
-        time.sleep(2.5)
         os.remove(file_name)
