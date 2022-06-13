@@ -47,4 +47,10 @@ class AipaaFrontend:
         response = requests.post(url, headers=headers, data=payload)
 
         response = response.json()
-        return response['download_link']
+        download_link = response['download_link']
+
+        tts = requests.get(download_link, headers=headers)
+        with open(file_name, 'wb') as f:
+            f.write(tts.content)
+        
+        self.play_sound(file_name)
