@@ -1,6 +1,7 @@
 import librosa
 import os
 import pyaudio 
+from playsound import playsound
 import requests
 import soundfile as sf
 import ssl
@@ -19,30 +20,6 @@ else:
 class AipaaFrontend:
     def __init__(self):
         pass
-
-    def play_sound(self, wave_file):
-        x, _ = librosa.load(wave_file, sr=8000)
-        sf.write(wave_file, x, 16000)
-
-        wave_file = wave.open(wave_file, 'rb')
-        chunk = 1024
-        player = pyaudio.PyAudio() 
-
-        stream = player.open(
-            format = player.get_format_from_width(wave_file.getsampwidth()),
-            channels = wave_file.getnchannels(), 
-            rate = wave_file.getframerate(),
-            output = True
-        )
-
-        data = wave_file.readframes(chunk) 
-
-        while data != b'':
-            stream.write(data)
-            data = wave_file.readframes(chunk)
-        
-        stream.close()
-        player.terminate()
     
     def say(self, input_text, file_name='tts.wav', keep_file=False):
         headers = {'Authorization': f'Bearer {os.getenv("AIPAA_TOKEN")}'}
@@ -58,5 +35,5 @@ class AipaaFrontend:
         with open(file_name, 'wb') as f:
             f.write(tts.content)
         
-        self.play_sound(file_name)
+        playsound(file_name)
         os.remove(file_name)
