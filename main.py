@@ -1,9 +1,6 @@
-import librosa
 import os
-import pyaudio 
 from playsound import playsound
 import requests
-import soundfile as sf
 import ssl
 import wave
 import warnings
@@ -20,7 +17,7 @@ else:
 class AipaaFrontend:
     def __init__(self):
         pass
-    
+
     def say(self, input_text, file_name='tts.wav', keep_file=False):
         headers = {'Authorization': f'Bearer {os.getenv("AIPAA_TOKEN")}'}
         payload = {'input_text': input_text}
