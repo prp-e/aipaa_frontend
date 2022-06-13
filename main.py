@@ -1,7 +1,9 @@
 from datetime import datetime
+import librosa
 import os
 import pyaudio 
 import requests
+import soundfile as sf
 import ssl
 import urllib.parse
 import wave
@@ -19,6 +21,9 @@ class AipaaFrontend:
         pass
 
     def play_sound(self, wave_file):
+        x, _ = librosa.load(wave_file, sr=16000)
+        sf.write(wave_file, x, 16000)
+        
         wave_file = wave.open(wave_file, 'rb')
         chunk = 1024
         player = pyaudio.PyAudio() 
