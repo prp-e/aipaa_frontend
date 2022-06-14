@@ -25,12 +25,15 @@ class AipaaFrontend:
 
         response = requests.post(url, headers=headers, data=payload)
 
-        response = response.json()
-        download_link = response['download_link']
+        try:
+            response = response.json()
+            download_link = response['download_link']
 
-        tts = requests.get(download_link, headers=headers)
-        with open(file_name, 'wb') as f:
-            f.write(tts.content)
-        
-        playsound(file_name)
-        os.remove(file_name)
+            tts = requests.get(download_link, headers=headers)
+            with open(file_name, 'wb') as f:
+                f.write(tts.content)
+            
+            playsound(file_name)
+            os.remove(file_name)
+        except:
+            print(response)
