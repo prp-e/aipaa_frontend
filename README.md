@@ -1,6 +1,3 @@
 # AIPAA Front-end (wip)
 
-## Necessary environment variables and libraries
-
-* `AIPAA_TOKEN` : It is tricky to get one for now.
-* `playsound` : The python library necessary for working with wav file.
+This is the repository for _[AIPAA](https://aipaa.ir)_ services client. I mostly write for TTS service, but you can make a PR for other services they provided.
