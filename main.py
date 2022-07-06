@@ -34,7 +34,7 @@ class AipaaFrontend:
         payload = {"input_text": text}
         headers = {'Authorization': 'Bearer ' + self.token}
         request = requests.post(url, data=payload, headers=headers)
-
+        
         self.sound_url = request.json()['download_link']
         return self.sound_url
     
