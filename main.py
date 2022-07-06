@@ -19,6 +19,7 @@ class AipaaFrontend:
         self.client_id = client_id
         self.client_secret = client_secret
         self.token = ''
+        self.sound_url = ''
     
     def authenticate(self):
         url = "https://api.aipaa.ir/auth/token"
@@ -29,10 +30,12 @@ class AipaaFrontend:
         return self.token
     
     def tts(self, text):
-        url = "https://api.aipaa.ir/api/v1/voice/tts"
+        url = "https://api.aipaa.ir/api/v1/voice/tts/"
         payload = {"input_text": text}
         headers = {'Authorization': 'Bearer ' + self.token}
         request = requests.post(url, data=payload, headers=headers)
 
-        return request.text
+        self.sound_url = request.json()['download_link']
+        return self.sound_url
+    
     
