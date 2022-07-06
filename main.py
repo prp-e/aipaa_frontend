@@ -28,3 +28,11 @@ class AipaaFrontend:
         self.token = request.json()['access_token']
         return self.token
     
+    def tts(self, text):
+        url = "https://api.aipaa.ir/api/v1/voice/tts"
+        payload = {"input_text": text}
+        headers = {'Authorization': 'Bearer ' + self.token}
+        request = requests.post(url, data=payload, headers=headers)
+
+        return request.text
+    
