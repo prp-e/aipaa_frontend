@@ -40,3 +40,6 @@ aipaa.say("سلام دوست عزیزم")
 - The code in this repository is open source and you can use it under the _MIT License_. But AIPAA's core service isn't and I'm not responsible for that. Please mind this while making a new issue.
 
 ## TODO
+
+- [ ] Making a Python library for this project
+- [ ] Exploring API and add more features to the TTS functionallity. 
