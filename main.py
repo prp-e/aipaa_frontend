@@ -19,3 +19,10 @@ class AipaaFrontend:
         self.client_id = client_id
         self.client_secret = client_secret
         self.token = ''
+    
+    def authenticate(self):
+        url = "api.aipaa.ir/auth/token"
+        payload = {"client_id": self.client_id, "client_secret": self.client_secret, "grant_type": "client_credentials", "scope": "file_manager text voice image video"}
+        request = requests.post(url, data=payload)
+
+        print(request.text)
