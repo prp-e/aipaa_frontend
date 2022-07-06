@@ -13,3 +13,14 @@ This is the repository for _[AIPAA](https://aipaa.ir)_ services client. I mostly
 
     aipaa = AipaaFrontend(YOUR_CLIENT_ID, YOUR_CLIENT_SECRET)
     ```
+- Then, you need to authenticate. It's easy as Pie:
+
+    ```python
+    aipaa.authenticate()
+    ```
+
+_NOTE_: There is no need to store the result in any variable. It's been handled internally. 
+
+- Now, you can use features implemented in the library. For now, Only TTS is available.
+
+## Code sample
