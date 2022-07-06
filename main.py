@@ -38,4 +38,14 @@ class AipaaFrontend:
         self.sound_url = request.json()['download_link']
         return self.sound_url
     
+    def say(self, text):
+        url = self.tts(text)
+        headers = {'Authorization': 'Bearer ' + self.token}
+        request = requests.get(url, headers=headers)
+
+        with open('sound.wav', 'wb') as f:
+            f.write(request.content)
+
+        playsound('sound.wav')
+    
     
