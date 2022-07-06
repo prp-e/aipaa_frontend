@@ -25,6 +25,6 @@ class AipaaFrontend:
         payload = {"client_id": self.client_id, "client_secret": self.client_secret, "grant_type": "client_credentials", "scope": "file_manager text voice image video"}
         request = requests.post(url, data=payload)
 
-        token = request.json()['access_token']
-        return token
+        self.token = request.json()['access_token']
+        return self.token
     
