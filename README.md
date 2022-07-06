@@ -24,3 +24,11 @@ _NOTE_: There is no need to store the result in any variable. It's been handled 
 - Now, you can use features implemented in the library. For now, Only TTS is available.
 
 ## Code sample
+
+```python
+from aipaa import AipaaFrontend
+
+aipaa = AipaaFrontend(YOUR_CLIENT_ID, YOUR_CLIENT_SECRET)
+aipaa.authenticate()
+aipaa.say("سلام دوست عزیزم")
+```
