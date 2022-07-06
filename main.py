@@ -47,5 +47,6 @@ class AipaaFrontend:
             f.write(request.content)
 
         playsound('sound.wav')
+        os.remove('sound.wav')
     
     
