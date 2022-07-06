@@ -35,4 +35,8 @@ aipaa.say("سلام دوست عزیزم")
 
 ## Important notes
 
+- I wrote this library as a part of my personal _smart assistant_ project. This is why I only made it for TTS systems.
+- I am only responsible for __THIS__ library and codes contained in __THIS__ repository, since my code is a third-party application on top of AIPAA's API and service. 
+- The code in this repository is open source and you can use it under the _MIT License_. But AIPAA's core service isn't and I'm not responsible for that. Please mind this while making a new issue.
+
 ## TODO
